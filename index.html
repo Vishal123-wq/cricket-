@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>/* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            box-sizing: border-box;
+        }
+        
+        header {
+            background-color: #111212;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #e4eef9;
+            font-weight: bold;
+            padding: 10px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: #fff;
+            background-color: #0056b3;
+            border-radius: 5px;
+        }
+        
+        .hero-banner {
+            background: url("https://img1.hscicdn.com/image/upload/f_auto/lsci/db/PICTURES/CMS/348100/348138.jpg") no-repeat center center/cover;
+            height: 750px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(13, 11, 11);
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-banner h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+  /* Base styles */
+#news {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.news-categories {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.news-categories button {
+    background-color: #007BFF;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.news-categories button:hover {
+    background-color: #98a0a9;
+    transform: scale(1.05);
+}
+
+.news-articles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* News Article Styles */
+.news-article {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    width: calc(33% - 40px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.news-article:hover {
+    transform: translateY(-5px);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .news-article {
+        width: calc(50% - 40px);
+    }
+}
+
+@media (max-width: 480px) {
+    .news-article {
+        width: calc(100% - 40px);
+    }
+}
+      
+       
+
+
+
+/* Matches Section */
+.matches-upcoming {
+    padding: 20px;
+}
+
+.match-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.match {
+    background-color: #e9ecef;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.match:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.match-info h4 {
+    margin: 0;
+    color: #007bff;
+}
+
+.match-info p {
+    margin: 5px 0;
+}
+
+/* Animation for Loading Matches */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.match {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Players Section */
+#players {
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.player-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.player {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    width: calc(50% - 20px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.player:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.player-info h3 {
+    margin-top: 0;
+    color: #007bff;
+}
+
+.player-info p {
+    margin: 5px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .player {
+        width: calc(100% - 20px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Stats Section */
+#stats {
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.stats-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.stat {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.stat:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.stat h3 {
+    margin-top: 0;
+    color: #007bff;
+}
+
+.stat ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.stat ul li {
+    margin: 5px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .stats-container {
+        flex-direction: column;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Tournaments Section */
+#tournaments {
+    padding: 20px;
+    background-color: #f0f4f8;
+}
+
+.tournament-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.tournament {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: slideIn 0.5s ease-in-out;
+}
+
+.tournament:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.tournament h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+.tournament p {
+    margin: 5px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .tournament {
+        width: calc(100% - 20px);
+    }
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Videos Section */
+#videos {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.video-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.video {
+    background: #ffffff;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    padding: 15px;
+    width: 320px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.video:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.video img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.video h3 {
+    margin: 10px 0;
+    color: #007bff;
+}
+
+.video p {
+    margin: 5px 0;
+    color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .video {
+        width: calc(100% - 20px);
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Photos Section */
+#photos {
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.photo-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.photo {
+    width: calc(33.333% - 15px); /* Three columns layout */
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.photo:hover img {
+    transform: scale(1.1);
+}
+
+.photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.photo h3 {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .photo {
+        width: calc(50% - 15px); /* Two columns layout */
+    }
+}
+
+@media (max-width: 768px) {
+    .photo {
+        width: calc(100% - 15px); /* One column layout */
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Forum Section */
+#forum {
+    padding: 20px;
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.forum-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.forum-topic {
+    background: #333333;
+    border: 1px solid #444444;
+    border-radius: 8px;
+    padding: 15px;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    animation: fadeIn 0.5s ease-in-out;
+    color: #cccccc;
+}
+
+.forum-topic:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    background-color: #444444;
+}
+
+.forum-topic h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+.forum-topic p {
+    margin: 5px 0;
+    color: #dddddd;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .forum-topic {
+        width: calc(100% - 20px); /* Full width on smaller screens */
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Shop Section */
+#shop {
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.shop-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.shop-item {
+    background: #ffffff;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    padding: 15px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    animation: fadeIn 0.5s ease-in-out;
+    text-align: center;
+}
+
+.shop-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.shop-item:hover img {
+    transform: scale(1.05);
+}
+
+.shop-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    background-color: #e9ecef;
+}
+
+.shop-item h3 {
+    margin: 10px 0;
+    color: #007bff;
+}
+
+.shop-item p {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 10px 0;
+}
+
+.shop-item button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.shop-item button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .shop-item {
+        width: calc(50% - 20px); /* Two columns layout on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .shop-item {
+        width: calc(100% - 20px); /* One column layout on very small screens */
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Contact Section */
+#contact {
+    padding: 20px;
+    background-color: #f0f8ff;
+    color: #333;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.contact-info,
+.contact-form {
+    background: #ffffff;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.contact-info h3,
+.contact-form h3 {
+    margin-top: 0;
+    color: #007bff;
+}
+
+.contact-info p,
+.contact-info address p {
+    margin: 5px 0;
+}
+
+.contact-form label {
+    display: block;
+    margin-top: 10px;
+    color: #333;
+}
+
+.contact-form input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.contact-form button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 10px;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Base footer styles */
+footer {
+    background-color: #343a40;
+    color: #f8f9fa;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Footer text */
+footer p {
+    margin: 0;
+    font-size: 1rem;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Footer logo (if used) */
+.footer-logo img {
+    width: 50px;
+    height: auto;
+    margin-top: 10px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+footer {
+    animation: fadeIn 2s ease-in;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    footer p {
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 480px) {
+    footer {
+        padding: 15px 0;
+    }
+
+    footer p {
+        font-size: 0.75rem;
+    }
+
+    .footer-logo img {
+        width: 40px;
+    }
+}
+
+/* Scroll to Top Button Styles */
+#scrollToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    display: none; /* Hidden by default */
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+} 
+
+#scrollToTop:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+} 
+
+        
+    
+        </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#news">News</a>
+            <a href="#matches">Matches</a>
+            <a href="#teams">Teams</a>
+            <a href="#players">Players</a>
+            <a href="#stats">Stats</a>
+            <a href="#tournaments">Tournaments</a>
+            <a href="#videos">Videos</a>
+            <a href="#photos">Photos</a>
+            <a href="#forum">Forum</a>
+            <a href="#shop">Shop</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="hero-banner">
+            <h1>Latest Cricket News</h1>
+            <!-- Add Hero Image Here -->
+        </div>
+        
+        
+    </section>
+
+    <section id="news">
+        <h2>News</h2>
+        <div class="news-categories">
+            <button onclick="filterNews('international')">International Cricket</button>
+            <button onclick="filterNews('domestic')">Domestic Cricket</button>
+            <button onclick="filterNews('player')">Player News</button>
+            <button onclick="filterNews('tournament')">Tournament News</button>
+        </div>
+        <div id="news-articles" class="news-articles">
+            <!-- Dynamic News Articles will be inserted here -->
+        </div>
+    </section>
+    
+
+    <section id="matches">
+        <h2>Matches</h2>
+        <div class="matches-upcoming">
+            <h3>Upcoming Matches</h3>
+            <div class="match-list">
+                <div class="match">
+                    <div class="match-info">
+                        <h4>Match 1</h4>
+                        <p><strong>Date:</strong> August 15, 2024</p>
+                        <p><strong>Teams:</strong> Team A vs Team B</p>
+                        <p><strong>Venue:</strong> Stadium X</p>
+                        <p><strong>Tournament:</strong> World Cup 2024</p>
+                    </div>
+                </div>
+                <div class="match">
+                    <div class="match-info">
+                        <h4>Match 2</h4>
+                        <p><strong>Date:</strong> August 16, 2024</p>
+                        <p><strong>Teams:</strong> Team C vs Team D</p>
+                        <p><strong>Venue:</strong> Stadium Y</p>
+                        <p><strong>Tournament:</strong> World Cup 2024</p>
+                    </div>
+                </div>
+                <!-- Add more matches as needed -->
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="teams">
+        <h2>Teams</h2>
+        <!-- Team Profiles Here -->
+    </section>
+
+    <section id="players">
+        <h2>Players</h2>
+        <div class="player-list">
+            <div class="player">
+                <div class="player-info">
+                    <h3>Player Name 1</h3>
+                    <p><strong>Team:</strong> Team A</p>
+                    <p><strong>Role:</strong> Batsman</p>
+                    <p><strong>Matches:</strong> 50</p>
+                    <p><strong>Runs:</strong> 2000</p>
+                    <p><strong>Wickets:</strong> 50</p>
+                </div>
+            </div>
+            <div class="player">
+                <div class="player-info">
+                    <h3>Player Name 2</h3>
+                    <p><strong>Team:</strong> Team B</p>
+                    <p><strong>Role:</strong> Bowler</p>
+                    <p><strong>Matches:</strong> 40</p>
+                    <p><strong>Runs:</strong> 800</p>
+                    <p><strong>Wickets:</strong> 60</p>
+                </div>
+            </div>
+            <!-- Add more players here -->
+        </div>
+    </section>
+    
+    <section id="stats">
+        <h2>Cricket Stats</h2>
+        <div class="stats-container">
+            <div class="stat">
+                <h3>Top Batsmen</h3>
+                <ul>
+                    <!-- Stats will be inserted here -->
+                </ul>
+            </div>
+            <div class="stat">
+                <h3>Top Bowlers</h3>
+                <ul>
+                    <!-- Stats will be inserted here -->
+                </ul>
+            </div>
+            <div class="stat">
+                <h3>Highest Partnerships</h3>
+                <ul>
+                    <!-- Stats will be inserted here -->
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="tournaments">
+        <h2>Cricket Tournaments</h2>
+        <div class="tournament-container">
+            <!-- Tournament items will be inserted here -->
+        </div>
+    </section>
+    
+    <section id="videos">
+        <h2>Cricket Videos</h2>
+        <div class="video-container">
+            <!-- Video items will be inserted here -->
+        </div>
+    </section>
+    
+    <section id="photos">
+        <h2>Cricket Photos</h2>
+        <div class="photo-container">
+            <!-- Photo items will be inserted here -->
+        </div>
+    </section>
+    
+
+    <section id="forum">
+        <h2>Forum</h2>
+        <div class="forum-container">
+            <div class="forum-topic">
+                <h3>Match Discussions</h3>
+                <p>Discuss the latest matches and share your opinions.</p>
+            </div>
+            <div class="forum-topic">
+                <h3>Player Performances</h3>
+                <p>Talk about player performances and stats.</p>
+            </div>
+            <div class="forum-topic">
+                <h3>Tournament Predictions</h3>
+                <p>Predict the outcomes of upcoming tournaments.</p>
+            </div>
+            <!-- Add more topics as needed -->
+        </div>
+    </section>
+    
+
+    <section id="shop">
+        <h2>Cricket Shop</h2>
+        <div class="shop-container">
+            <!-- Shop items will be inserted here -->
+            <div class="shop-item">
+                <img src="https://via.placeholder.com/300x200?text=Jersey" alt="Jersey">
+                <h3>Cricket Jersey</h3>
+                <p>$49.99</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="shop-item">
+                <img src="https://via.placeholder.com/300x200?text=Hat" alt="Hat">
+                <h3>Cricket Hat</h3>
+                <p>$19.99</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="shop-item">
+                <img src="https://via.placeholder.com/300x200?text=Bat" alt="Bat">
+                <h3>Cricket Bat</h3>
+                <p>$89.99</p>
+                <button>Add to Cart</button>
+            </div>
+            <!-- Add more shop items here -->
+        </div>
+    </section>
+    
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-container">
+        <div class="contact-info">
+            <h3>Get in Touch</h3>
+            <p>If you have any questions or feedback, feel free to reach out to us using the form below.</p>
+            <address>
+                <p><strong>Address:</strong> 123 Cricket Lane, Cricket Town, CR1 2CD</p>
+                <p><strong>Phone:</strong> +91 7972628662</p>
+                <p><strong>Email:</strong> contact@cricketwebsite.com</p>
+            </address>
+        </div>
+        <div class="contact-form">
+            <h3>Login</h3>
+            <form id="login-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+</section>
+    
+
+  
+<footer>
+    
+    <div class="footer-content">
+        <p>&copy; 2024 Cricket Website</p>
+        <div class="footer-logo">
+            <!-- Add logo image if you have one -->
+            <!-- <img src="logo.png" alt="Logo"> -->
+        </div>
+    </div>
+    <button id="scrollToTop" onclick="scrollToTop()">↑</button>
+</footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    console.log('Page loaded');
+
+    // Example dynamic news articles
+    const newsArticles = [
+        {
+            title: "Cricket World Cup 2024 Kicks Off",
+            category: "international",
+            content: "The Cricket World Cup 2024 has officially started, featuring teams from around the globe. This year's tournament promises exciting matches and intense competition among the top cricketing nations."
+        },
+        {
+            title: "Local Tournament Results",
+            category: "domestic",
+            content: "The local cricket tournament saw some thrilling matches this week. The semi-finals have been set, with teams battling for a place in the finals. Stay tuned for more updates and match results."
+        },
+        {
+            title: "Star Player Injured Before Big Match",
+            category: "player",
+            content: "Star batsman John Doe has suffered a minor injury and may miss the crucial match against the arch-rivals. The team management is hopeful for a quick recovery but will have to consider alternative strategies."
+        },
+        {
+            title: "New Tournament Announced for Next Season",
+            category: "tournament",
+            content: "A new domestic cricket tournament has been announced for the next season. The tournament aims to provide a platform for emerging players to showcase their talents and gain valuable experience."
+        },
+        {
+            title: "Historic Win for Team A in Last Over Thriller",
+            category: "international",
+            content: "In a nail-biting finish, Team A secured a historic win in the last over of the match against Team B. The thrilling encounter saw dramatic swings in momentum and an unforgettable final over."
+        }
+        // Add more articles here
+    ];
+
+    function filterNews(category) {
+        const articlesContainer = document.getElementById('news-articles');
+        articlesContainer.innerHTML = '';
+
+        newsArticles
+            .filter(article => category === 'all' || article.category === category)
+            .forEach(article => {
+                const articleElement = document.createElement('div');
+                articleElement.classList.add('news-article');
+                articleElement.innerHTML = `
+                    <h3>${article.title}</h3>
+                    <p>${article.content}</p>
+                `;
+                articlesContainer.appendChild(articleElement);
+            });
+    }
+
+    // Initialize with all articles
+    filterNews('all');
+});
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Page loaded');
+
+    // Example upcoming matches
+    const upcomingMatches = [
+        {
+            title: "Match 1",
+            date: "August 15, 2024",
+            teams: "Team A vs Team B",
+            venue: "Stadium X",
+            tournament: "World Cup 2024"
+        },
+        {
+            title: "Match 2",
+            date: "August 16, 2024",
+            teams: "Team C vs Team D",
+            venue: "Stadium Y",
+            tournament: "World Cup 2024"
+        }
+        // Add more matches here
+    ];
+
+    function populateUpcomingMatches() {
+        const matchList = document.querySelector('.match-list');
+        matchList.innerHTML = ''; // Clear any existing content
+
+        upcomingMatches.forEach(match => {
+            const matchElement = document.createElement('div');
+            matchElement.classList.add('match');
+            matchElement.innerHTML = `
+                <div class="match-info">
+                    <h4>${match.title}</h4>
+                    <p><strong>Date:</strong> ${match.date}</p>
+                    <p><strong>Teams:</strong> ${match.teams}</p>
+                    <p><strong>Venue:</strong> ${match.venue}</p>
+                    <p><strong>Tournament:</strong> ${match.tournament}</p>
+                </div>
+            `;
+            matchList.appendChild(matchElement);
+        });
+    }
+
+    // Populate matches on page load
+    populateUpcomingMatches();
+});
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Page loaded');
+
+    // Example player data
+    const players = [
+        {
+            name: "Player Name 1",
+            team: "Team A",
+            role: "Batsman",
+            matches: 50,
+            runs: 2000,
+            wickets: 50
+        },
+        {
+            name: "Player Name 2",
+            team: "Team B",
+            role: "Bowler",
+            matches: 40,
+            runs: 800,
+            wickets: 60
+        }
+        // Add more players here
+    ];
+
+    function populatePlayers() {
+        const playerList = document.querySelector('.player-list');
+        playerList.innerHTML = ''; // Clear existing content
+
+        players.forEach(player => {
+            const playerElement = document.createElement('div');
+            playerElement.classList.add('player');
+            playerElement.innerHTML = `
+                <div class="player-info">
+                    <h3>${player.name}</h3>
+                    <p><strong>Team:</strong> ${player.team}</p>
+                    <p><strong>Role:</strong> ${player.role}</p>
+                    <p><strong>Matches:</strong> ${player.matches}</p>
+                    <p><strong>Runs:</strong> ${player.runs}</p>
+                    <p><strong>Wickets:</strong> ${player.wickets}</p>
+                </div>
+            `;
+            playerList.appendChild(playerElement);
+        });
+    }
+
+    // Populate players on page load
+    populatePlayers();
+});
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Page loaded');
+
+    // Example stats data
+    const statsData = {
+        topBatsmen: [
+            { name: "Player 1", runs: 3000 },
+            { name: "Player 2", runs: 2900 },
+            { name: "Player 3", runs: 2800 }
+        ],
+        topBowlers: [
+            { name: "Bowler 1", wickets: 150 },
+            { name: "Bowler 2", wickets: 140 },
+            { name: "Bowler 3", wickets: 130 }
+        ],
+        highestPartnerships: [
+            { partnership: "Player 1 & Player 2", runs: 300 },
+            { partnership: "Player 3 & Player 4", runs: 290 },
+            { partnership: "Player 5 & Player 6", runs: 280 }
+        ]
+    };
+
+    function populateStats() {
+        const topBatsmenList = document.querySelector('#stats .stat:nth-of-type(1) ul');
+        const topBowlersList = document.querySelector('#stats .stat:nth-of-type(2) ul');
+        const highestPartnershipsList = document.querySelector('#stats .stat:nth-of-type(3) ul');
+
+        topBatsmenList.innerHTML = '';
+        topBowlersList.innerHTML = '';
+        highestPartnershipsList.innerHTML = '';
+
+        statsData.topBatsmen.forEach(stat => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `${stat.name}: ${stat.runs} runs`;
+            topBatsmenList.appendChild(listItem);
+        });
+
+        statsData.topBowlers.forEach(stat => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `${stat.name}: ${stat.wickets} wickets`;
+            topBowlersList.appendChild(listItem);
+        });
+
+        statsData.highestPartnerships.forEach(stat => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `${stat.partnership}: ${stat.runs} runs`;
+            highestPartnershipsList.appendChild(listItem);
+        });
+    }
+
+    // Populate stats on page load
+    populateStats();
+});
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Page loaded');
+
+    // Example tournament data
+    const tournaments = [
+        {
+            name: "Cricket World Cup 2024",
+            date: "October 2024",
+            location: "India",
+            description: "The premier international cricket tournament featuring the best teams from around the globe."
+        },
+        {
+            name: "IPL 2024",
+            date: "March - May 2024",
+            location: "India",
+            description: "The Indian Premier League, known for its exciting T20 matches and star-studded teams."
+        },
+        {
+            name: "Big Bash League 2024",
+            date: "December 2024 - February 2025",
+            location: "Australia",
+            description: "Australia's premier T20 competition with thrilling matches and international stars."
+        }
+        // Add more tournaments here
+    ];
+
+    function populateTournaments() {
+        const tournamentContainer = document.querySelector('.tournament-container');
+        tournamentContainer.innerHTML = ''; // Clear existing content
+
+        tournaments.forEach(tournament => {
+            const tournamentElement = document.createElement('div');
+            tournamentElement.classList.add('tournament');
+            tournamentElement.innerHTML = `
+                <h3>${tournament.name}</h3>
+                <p><strong>Date:</strong> ${tournament.date}</p>
+                <p><strong>Location:</strong> ${tournament.location}</p>
+                <p>${tournament.description}</p>
+            `;
+            tournamentContainer.appendChild(tournamentElement);
+        });
+    }
+
+    // Populate tournaments on page load
+    populateTournaments();
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Page loaded');
+
+    // Example video data
+    const videos = [
+        {
+            title: "Cricket Match Highlights",
+            description: "Watch the thrilling highlights of the latest cricket match.",
+            thumbnail: "https://wallpaperbat.com/img/1434545-cricket-news-virat-kohli-hd-wallpaper-photo-send-happy-birthday-kohli-greetings-on-whatsapp.jpg", // Replace with your video thumbnail
+            url: "https://youtu.be/o51WMR8m8KM?si=silw9ROsssEjzgBA" // Replace with your video URL
+        },
+        {
+            title: "Player Interview",
+            description: "Exclusive interview with one of the top players.",
+            thumbnail: "https://wallpaperaccess.com/full/3078953.jpg", // Replace with your video thumbnail
+            url: "https://youtu.be/XoZ9Mkj00fE?si=5JU_f3sTYvc_V_q2" // Replace with your video URL
+        },
+        {
+            title: "Match Preview",
+            description: "Preview of the upcoming match and what to expect.",
+            thumbnail: "https://wallpaperbat.com/img/1711117-cricket-news-virat-kohli-birthday-special-king-kohli-wallpaper-and-hd-image-for-free-download.jpg", // Replace with your video thumbnail
+            url: "https://youtu.be/4oSPHA3tu54?si=J2Wiymc08hVk5TXi" // Replace with your video URL
+        }
+        // Add more videos here
+    ];
+
+    function populateVideos() {
+        const videoContainer = document.querySelector('.video-container');
+        videoContainer.innerHTML = ''; // Clear existing content
+
+        videos.forEach(video => {
+            const videoElement = document.createElement('div');
+            videoElement.classList.add('video');
+            videoElement.innerHTML = `
+                <a href="${video.url}" target="_blank">
+                    <img src="${video.thumbnail}" alt="${video.title}">
+                    <h3>${video.title}</h3>
+                    <p>${video.description}</p>
+                </a>
+            `;
+            videoContainer.appendChild(videoElement);
+        });
+    }
+
+    // Populate videos on page load
+    populateVideos();
+});
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Page loaded');
+
+    // Example photo data
+    const photos = [
+        {
+            title: "Match Highlights",
+            imageUrl: "https://brightcove.iplt20.com/output/input/6359836510112-1722661172.jpg" // Replace with actual image URL
+        },
+        {
+            title: "Celebration Moment",
+            imageUrl: "https://www.newshub.co.nz/home/sport/2022/10/twenty20-world-cup-virat-kohli-shines-as-ravichandran-ashwin-secures-india-victory-over-pakistan-at-melbourne/_jcr_content/par/video/image.dynimg.1280.q75.jpg/v1666547492155/india_getty_1120.jpg" // Replace with actual image URL
+        },
+        {
+            title: "Player Action",
+            imageUrl: "https://resize.indiatvnews.com/en/resize/gallery/835_-/2022/10/image-2022-10-28t193755-1666966091.jpg" // Replace with actual image URL
+        }
+        // Add more photos here
+    ];
+
+    function populatePhotos() {
+        const photoContainer = document.querySelector('.photo-container');
+        photoContainer.innerHTML = ''; // Clear existing content
+
+        photos.forEach(photo => {
+            const photoElement = document.createElement('div');
+            photoElement.classList.add('photo');
+            photoElement.innerHTML = `
+                <img src="${photo.imageUrl}" alt="${photo.title}">
+                <h3>${photo.title}</h3>
+            `;
+            photoContainer.appendChild(photoElement);
+        });
+    }
+
+    // Populate photos on page load
+    populatePhotos();
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Page loaded');
+
+    // Example forum topics data
+    const forumTopics = [
+        {
+            title: "Match Discussions",
+            description: "Discuss the latest matches and share your opinions."
+        },
+        {
+            title: "Player Performances",
+            description: "Talk about player performances and stats."
+        },
+        {
+            title: "Tournament Predictions",
+            description: "Predict the outcomes of upcoming tournaments."
+        }
+        // Add more topics here
+    ];
+
+    function populateForum() {
+        const forumContainer = document.querySelector('.forum-container');
+        forumContainer.innerHTML = ''; // Clear existing content
+
+        forumTopics.forEach(topic => {
+            const topicElement = document.createElement('div');
+            topicElement.classList.add('forum-topic');
+            topicElement.innerHTML = `
+                <h3>${topic.title}</h3>
+                <p>${topic.description}</p>
+            `;
+            forumContainer.appendChild(topicElement);
+        });
+    }
+
+    // Populate forum topics on page load
+    populateForum();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Page loaded');
+
+    // Example shop items data
+    const shopItems = [
+        {
+            name: "Cricket Jersey",
+            price: "$49.99",
+            imageUrl: "https://cyberriedstore.com/wp-content/uploads/2023/03/Rcb-virat-kohli-official-jersey-name-printed.png", // Replace with actual image URL
+            description: "High-quality cricket jersey with team logo."
+        },
+        {
+            name: "Cricket Hat",
+            price: "$19.99",
+            imageUrl: "https://images-na.ssl-images-amazon.com/images/I/61zreQrS-mL._AC_UY679_.jpg", // Replace with actual image URL
+            description: "Stylish cricket hat for sun protection."
+        },
+        {
+            name: "Cricket Bat",
+            price: "$89.99",
+            imageUrl: "https://rukminim1.flixcart.com/image/832/832/j9zyd8w0/bat/q/h/h/weight-range-1100-1250-g-long-handle-endorsed-english-willow-mr-original-imaethmr6hjfu9fe.jpeg?q=70", // Replace with actual image URL
+            description: "Premium cricket bat with excellent grip."
+        }
+        // Add more items here
+    ];
+
+    function populateShop() {
+        const shopContainer = document.querySelector('.shop-container');
+        shopContainer.innerHTML = ''; // Clear existing content
+
+        shopItems.forEach(item => {
+            const itemElement = document.createElement('div');
+            itemElement.classList.add('shop-item');
+            itemElement.innerHTML = `
+                <img src="${item.imageUrl}" alt="${item.name}">
+                <h3>${item.name}</h3>
+                <p>${item.price}</p>
+                <button>Add to Cart</button>
+            `;
+            shopContainer.appendChild(itemElement);
+        });
+    }
+
+    // Populate shop items on page load
+    populateShop();
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Page loaded');
+
+    // Example form validation
+    const form = document.getElementById('login-form');
+    
+    form.addEventListener('submit', (event) => {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        
+        if (username === '' || password === '') {
+            alert('Please fill in all fields');
+            event.preventDefault(); // Prevent form submission
+        } else {
+            alert('Login successful');
+        }
+    });
+});
+
+
+// JavaScript for scroll-to-top functionality
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Show or hide scroll-to-top button based on scroll position
+window.onscroll = function() {
+    const button = document.getElementById('scrollToTop');
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        button.style.display = 'block';
+    } else {
+        button.style.display = 'none';
+    }
+};
+
+
+    </script>
+</body>
+</html>
